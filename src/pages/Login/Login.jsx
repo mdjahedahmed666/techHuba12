@@ -68,7 +68,7 @@ const Login = () => {
             <input type="password" name="password" required placeholder="password" className="input input-bordered" />
           </div>
           <div className="form-control my-6">
-            <button className="btn btn-outline btn-[#331A15]">Login</button>
+            <button className="btn text-lg btn-outline btn-[#331A15]">Login</button>
           </div>
         </form>
         {logError && <span className="text-red-400">{logError}</span>}
