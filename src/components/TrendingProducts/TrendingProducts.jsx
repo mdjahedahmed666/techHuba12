@@ -71,9 +71,9 @@ const TrendingProducts = () => {
                 <img src={product.image} alt="Shoes" />
               </figure>
               <div className="card-body">
-                <Link to="/productDetails" className="card-title underline">
-                  <h2>{product.name}</h2>
-                </Link>
+              <Link to={`/productDetails/${product._id}`} className="card-title underline">
+                <h2>{product.name}</h2>
+              </Link>
                 <p>{product.tags.join(", ")} </p>
                 <div>
                   <button
