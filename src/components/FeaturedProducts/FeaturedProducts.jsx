@@ -27,12 +27,11 @@ const FeaturedProducts = () => {
         setFeaturedProducts(sortedProducts);
       });
   }, []);
-
   const handleUpvote = (productId) => {
     if (user) {
       // Find the product by ID
       const updatedProducts = featuredProducts.map((product) => {
-        if (product.id === productId) {
+        if (product._id === productId) {
           const newUpvotes = product.upvotes + 1;
 
           // Update the product's upvotes locally
@@ -46,26 +45,26 @@ const FeaturedProducts = () => {
       setFeaturedProducts(updatedProducts);
 
       // Send data to the server
-      // fetch(`http://localhost:5000/upvotes/${productId}`, {
-      //   method: "PUT",
-      //   headers: {
-      //     "Content-Type": "application/json",
-      //   },
-      //   body: JSON.stringify({ upvotes: updatedProducts.find(product => product.id === productId).upvotes }),
-      // })
-      //   .then((res) => res.json())
-      //   .then((data) => {
-      //     console.log(data);
-      //   })
-      //   .catch((error) => {
-      //     console.error("Error:", error);
-      //     // Show an error notification using SweetAlert2
-      //     Swal.fire({
-      //       icon: "error",
-      //       title: "Upvote Error",
-      //       text: "There was an error processing your upvote. Please try again.",
-      //     });
-      //   });
+      fetch(`http://localhost:5000/upvotes/${productId}`, {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({ upvotes: updatedProducts.find(product => product._id === productId).upvotes }),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        })
+        .catch((error) => {
+          console.error("Error:", error);
+          // Show an error notification using SweetAlert2
+          Swal.fire({
+            icon: "error",
+            title: "Upvote Error",
+            text: "There was an error processing your upvote. Please try again.",
+          });
+        });
     }
   };
   return (
