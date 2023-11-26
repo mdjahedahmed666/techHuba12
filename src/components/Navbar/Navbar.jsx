@@ -52,7 +52,7 @@ const Navbar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li className="text-lg">
-        <NavLink to="/products">Products</NavLink>
+        <NavLink to="/allProducts">Products</NavLink>
       </li>
       {user ? (
         ""

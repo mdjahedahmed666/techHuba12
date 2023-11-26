@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/featuredProducts")
+    fetch("http://localhost:5000/allProducts")
       .then((res) => res.json())
       .then((data) =>  {
         // Convert timestamp strings to numerical values
@@ -73,7 +73,7 @@ const FeaturedProducts = () => {
         Featured Products
       </h2>
       <div className="grid gap-4 grid-cols-1 md:grid-cols-3">
-        {featuredProducts.map((product, index) => (
+        {featuredProducts.slice(0,6).map((product, index) => (
           <div key={index} className="card card-compact bg-base-100 shadow-xl">
             <figure>
               <img src={product.image} alt="Shoes" />
