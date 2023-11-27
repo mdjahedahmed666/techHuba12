@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import Swal from "sweetalert2";
 import { AuthContext } from "../../providers/AuthProvider";
 import { BiUpvote } from "react-icons/bi";
+import Review from "../../components/Review/Review";
 
 const ProductDetails = () => {
   const { user } = useContext(AuthContext);
@@ -122,6 +123,7 @@ const ProductDetails = () => {
           </div>
         </div>
       </div>
+      <Review productId={product._id}/>
     </div>
   );
 };
