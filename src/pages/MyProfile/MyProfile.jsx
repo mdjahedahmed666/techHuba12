@@ -8,12 +8,11 @@ const MyProfile = () => {
   const [subscribe, setSubscribe] = useState({});
   const { name, email, photo } = logedUser;
   const newSubscription = { name, email, subscription: true };
-  const{subscription} = subscribe;
-  console.log(subscription);
+  const { subscription } = subscribe || {};  console.log(subscription);
 
   useEffect(() => {
     if (user && user?.email) {
-      fetch("http://localhost:5000/users")
+      fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/users")
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -35,7 +34,7 @@ const MyProfile = () => {
   }, [user]);
 
   useEffect(() => {
-    fetch("http://localhost:5000/subscribe")
+    fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/subscribe")
       .then((res) => res.json())
       .then((data) =>  {
         const subscribed = data.find((subs) => subs.email === email);
@@ -45,7 +44,7 @@ const MyProfile = () => {
 
   const handleSubscription = () => {
     //send data to the server
-    fetch("http://localhost:5000/subscribe", {
+    fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/subscribe", {
       method: "POST",
       headers: {
         "content-type": "application/json",

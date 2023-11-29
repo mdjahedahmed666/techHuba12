@@ -12,7 +12,7 @@ const Review = ({productId}) => {
 
   useEffect(() => {
     if (user && user?.email) {
-      fetch('http://localhost:5000/users')
+      fetch('https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/users')
         .then((res) => res.json())
         .then((data) => {
           console.log(data);
@@ -33,10 +33,10 @@ const Review = ({productId}) => {
     }
   }, [user]);
   useEffect(() => {
-    fetch("http://localhost:5000/review")
+    fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/review")
       .then((res) => res.json())
       .then((data) => {
-        const userView = data.filter(review => review.id===productId);
+        const userView = data.filter(review => review.productId===productId);
         console.log(userReview);
         setUserReview(userView);
         setLoading(false);
@@ -66,7 +66,7 @@ const Review = ({productId}) => {
           productId,
         };
     
-        fetch("http://localhost:5000/review", {
+        fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/review", {
           method: "POST",
           headers: {
             "content-type": "application/json",

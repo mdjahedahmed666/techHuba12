@@ -1,4 +1,4 @@
-import { FaEnvelope, FaHome, FaSearch} from "react-icons/fa";
+import { FaHome } from "react-icons/fa";
 import { NavLink, Outlet } from "react-router-dom";
 
 import useAdmin from "../hooks/useAdmin";
@@ -33,7 +33,7 @@ const Dashboard = () => {
                             :
                             <>
                                 <li>
-                                    <NavLink to="/dashboard/userHome">
+                                    <NavLink>
                                         <FaHome></FaHome>
                                         User Home</NavLink>
                                 </li>

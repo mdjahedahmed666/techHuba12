@@ -12,7 +12,7 @@ const ProductDetails = () => {
   const [product, setProduct] = useState([]);
   const { id } = useParams();
   useEffect(() => {
-    fetch("http://localhost:5000/allProducts")
+    fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/allProducts")
       .then((res) => res.json())
       .then((data) => {
         const selectedProduct = data.find((pro) => pro._id === id);
@@ -32,7 +32,7 @@ const ProductDetails = () => {
       setProduct({ ...product, upvotes: newUpvotes });
 
       // Send data to the server
-      fetch(`http://localhost:5000/upvotes/${productId}`, {
+      fetch(`https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/upvotes/${productId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
@@ -55,34 +55,6 @@ const ProductDetails = () => {
     }
   };
 
-//   const handleAddToCart = () => {
-//     // You can customize the product data to send to the server
-//     const productData = {
-//       userEmail: email,
-//       name
-//     };
-
-//     //send data to the server
-//     fetch('http://localhost:5000/product', {
-//       method: "POST",
-//       headers: {
-//         "content-type": "application/json",
-//       },
-//       body: JSON.stringify(productData),
-//     })
-//       .then((res) => res.json())
-//       .then((data) => {
-//         console.log(data);
-//         if (data.acknowledged) {
-//           Swal.fire({
-//             icon: "success",
-//             title: "Success!",
-//             text: "Cart is added successfully",
-//             confirmButtonText: "Cool",
-//           });
-//         }
-//       });
-//   };
 
   return (
     <div className="my-16 container mx-auto px-4 md:px-32">

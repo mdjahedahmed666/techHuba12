@@ -10,7 +10,7 @@ const Navbar = () => {
 
   useEffect(() => {
     if (user && user?.email) {
-      fetch('http://localhost:5000/users')
+      fetch('https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/users')
         .then((res) => res.json())
         .then((data) => {
           console.log(data);

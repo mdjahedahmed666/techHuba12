@@ -9,7 +9,7 @@ const AllProducts = () => {
     const { user } = useContext(AuthContext);
   
     useEffect(() => {
-      fetch("http://localhost:5000/allProducts")
+      fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/allProducts")
         .then((res) => res.json())
         .then((data) =>  {
             setProducts(data);
@@ -34,7 +34,7 @@ const AllProducts = () => {
         setProducts(updatedProducts);
   
         // Send data to the server
-        fetch(`http://localhost:5000/upvotes/${productId}`, {
+        fetch(`https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/upvotes/${productId}`, {
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
@@ -72,7 +72,7 @@ const AllProducts = () => {
               <Link to={`/productDetails/${product._id}`} className="card-title underline">
                 <h2>{product.name}</h2>
               </Link>
-                <p>{product.tags.join(", ")} </p>
+                <p>{product.tags} </p>
                 <div>
                   <button
                     onClick={() => handleUpvote(product._id)}

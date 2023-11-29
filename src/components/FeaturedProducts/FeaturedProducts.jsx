@@ -10,7 +10,7 @@ const FeaturedProducts = () => {
   const { user } = useContext(AuthContext);
 
   useEffect(() => {
-    fetch("http://localhost:5000/allProducts")
+    fetch("https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/allProducts")
       .then((res) => res.json())
       .then((data) =>  {
         // Convert timestamp strings to numerical values
@@ -45,7 +45,7 @@ const FeaturedProducts = () => {
       setFeaturedProducts(updatedProducts);
 
       // Send data to the server
-      fetch(`http://localhost:5000/upvotes/${productId}`, {
+      fetch(`https://techhub-server-n5dugvzfl-mdjahedahmed12-gmailcom.vercel.app/upvotes/${productId}`, {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
