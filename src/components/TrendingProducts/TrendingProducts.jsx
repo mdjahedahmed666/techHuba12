@@ -60,7 +60,7 @@ const TrendingProducts = () => {
     };
 
     return (
-      <div className="container mx-auto px-4 md:px-32  my-28 py-10">
+      <div className="container mx-auto px-4 md:px-32  mb-15">
         <h2 className="font-bold font-rancho text-2xl text-black text-center mb-10">
           Trending Products
         </h2>
